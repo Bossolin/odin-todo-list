@@ -33,7 +33,7 @@
   background-color: white;
   height: 2rem;
   width: 2rem;
-  border: 2px solid white;
+  border: 0.05rem solid #00000038;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -51,6 +51,7 @@
   display: flex;
   gap: 0.05rem;
   background-color: #00000038;
+  border-top: #00000038 solid 0.05rem;
 }
 
 .list {
