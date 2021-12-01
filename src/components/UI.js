@@ -12,12 +12,12 @@ const UI = (() => {
       logo.classList.add("logo");
       logo.innerText = "Todo List";
 
-      const addTodo = document.createElement("button");
-      addTodo.classList.add("add-todo");
-      addTodo.innerText = "+";
+      const addTodoBtn = document.createElement("button");
+      addTodoBtn.classList.add("add-todo");
+      addTodoBtn.innerText = "+";
 
       header.appendChild(logo);
-      header.appendChild(addTodo);
+      header.appendChild(addTodoBtn);
 
       return header;
     })();
@@ -38,8 +38,55 @@ const UI = (() => {
       return main;
     })();
 
+    const modal = (() => {
+      const modalBG = document.createElement("div");
+      modalBG.classList.add("modal-bg");
+
+      const modalDiv = document.createElement("div");
+      modalDiv.classList.add("modal-div");
+      modalDiv.innerHTML = `<form action="">
+      <div class="form-header">
+        <h2>Add Todo</h2>
+        <button id="close-btn">&times;</button>
+      </div>
+      <label for="title">Task:</label>
+      <input type="text" name="title" id="title" />
+      <label for="date">Due date:</label>
+      <input type="date" name="date" id="date" />
+      <label for="prio">Priority:</label>
+      <div class="priority">
+        <input
+          type="radio"
+          id="normal"
+          name="prio"
+          value="normal"
+          checked="checked"
+        />
+        <label for="">Normal</label>
+        <input type="radio" id="urgent" name="prio" value="urgent" />
+        <label for="">Urgent</label>
+      </div>
+      <label for="cars">Folder:</label>
+      <select name="folders" id="folders">
+        <option value="folder1">Folder 1</option>
+        <option value="folder2">Folder 2</option>
+        <option value="folder3">Folder 3</option>
+        <option value="folder4">Fodler 4</option>
+      </select>
+      <div class="btns">
+        <button type="reset" id="reset-btn">Reset</button>
+        <button type="submit" id="add-btn">Add</button>
+      </div>
+    </form>`;
+
+      modalBG.appendChild(modalDiv);
+
+      return modalBG;
+    })();
+
     content.appendChild(header);
     content.appendChild(main);
+    content.appendChild(modal);
     body.appendChild(content);
   };
 
