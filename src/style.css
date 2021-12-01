@@ -18,11 +18,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
   color: white;
+  padding: 0.5rem 1rem;
 }
 
 .logo {
+  cursor: default;
 }
 
 .add-todo {
@@ -32,12 +33,12 @@
   background-color: white;
   height: 2rem;
   width: 2rem;
-  margin-right: 1rem;
   border: 2px solid white;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .add-todo:hover {
@@ -47,11 +48,17 @@
 
 .main {
   height: 100%;
+  display: flex;
+  gap: 0.05rem;
+  background-color: #00000038;
 }
 
 .list {
-  width: 20%;
+  background-color: #dfdfdf;
+  width: 15rem;
 }
 
 .todos {
+  background-color: white;
+  flex: 1;
 }
