@@ -1,3 +1,5 @@
+import Dom from "./Dom";
+
 const UI = (() => {
   const generateUI = () => {
     const body = document.querySelector("body");
@@ -88,6 +90,7 @@ const UI = (() => {
     content.appendChild(main);
     content.appendChild(modal);
     body.appendChild(content);
+    Dom.modalBtns();
   };
 
   return { generateUI };
