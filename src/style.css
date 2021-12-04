@@ -135,7 +135,7 @@ form {
 }
 
 #reset-btn,
-#add-btn {
+#submit-btn {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   border: 0.2rem solid #00a1ff;
@@ -152,12 +152,12 @@ form {
   background-color: #00a1ff;
 }
 
-#add-btn {
+#submit-btn {
   color: white;
   background-color: #00a1ff;
 }
 
-#add-btn:hover {
+#submit-btn:hover {
   color: #00a1ff;
   background-color: white;
 }

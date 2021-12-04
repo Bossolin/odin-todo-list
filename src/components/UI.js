@@ -70,14 +70,14 @@ const UI = (() => {
       </div>
       <label for="cars">Folder:</label>
       <select name="folders" id="folders">
+        <option value="main">Main</option>
         <option value="folder1">Folder 1</option>
         <option value="folder2">Folder 2</option>
-        <option value="folder3">Folder 3</option>
-        <option value="folder4">Fodler 4</option>
+        <option value="folder3">Fodler 3</option>
       </select>
       <div class="btns">
         <button type="reset" id="reset-btn">Reset</button>
-        <button type="submit" id="add-btn">Add</button>
+        <button type="submit" id="submit-btn">Add</button>
       </div>
     </form>`;
 
