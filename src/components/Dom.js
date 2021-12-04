@@ -1,3 +1,4 @@
+import Logic from "./Logic";
 import Todo from "./Todo";
 
 const Dom = (() => {
@@ -38,6 +39,10 @@ const Dom = (() => {
 
         const modal = document.querySelector(".modal-bg");
         modal.classList.remove("modal-bg-active");
+
+        Logic.displayTodo(newTodo);
+
+        console.log(Todo.todoArr);
       };
 
       btn.addEventListener("click", submitTodo);

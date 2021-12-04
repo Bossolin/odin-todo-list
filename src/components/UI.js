@@ -1,4 +1,6 @@
 import Dom from "./Dom";
+import Todo from "./Todo";
+import Logic from "./Logic";
 
 const UI = (() => {
   const generateUI = () => {
@@ -34,6 +36,10 @@ const UI = (() => {
       const todos = document.createElement("div");
       todos.classList.add("todos");
 
+      const todosUl = document.createElement("ul");
+      todosUl.classList.add("todos-ul");
+
+      todos.appendChild(todosUl);
       main.appendChild(list);
       main.appendChild(todos);
 
@@ -91,6 +97,7 @@ const UI = (() => {
     content.appendChild(modal);
     body.appendChild(content);
     Dom.modalBtns();
+    Todo.todoArr.forEach(Logic.displayTodo);
   };
 
   return { generateUI };

@@ -8,6 +8,15 @@ const Todo = (() => {
 
   const todoArr = [];
 
+  const dummyTodo = createTodo(
+    "Finish Todo List",
+    "04-12-2021",
+    "urgent",
+    "main"
+  );
+
+  todoArr.push(dummyTodo);
+
   return { createTodo, todoArr };
 })();
 
