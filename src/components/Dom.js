@@ -49,7 +49,15 @@ const Dom = (() => {
     })();
   };
 
-  return { modalBtns };
+  const deleteTodo = (todo) => {
+    const todoLi = document.getElementById(todo.path[1].id);
+    todoLi.remove();
+
+    Todo.todoArr = Todo.todoArr.filter((task) => +task.id !== +todo.path[1].id);
+    console.log(Todo.todoArr);
+  };
+
+  return { modalBtns, deleteTodo };
 })();
 
 export default Dom;

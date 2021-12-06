@@ -161,3 +161,38 @@ form {
   color: #00a1ff;
   background-color: white;
 }
+
+/* Todos list items CSS */
+
+.todos-ul {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.todos-ul li {
+  padding: 0.2rem;
+  list-style-type: none;
+  display: flex;
+  border: 0.1rem solid #868686;
+  border-left: 0.2rem solid red;
+}
+
+.todo-title {
+  margin-right: auto;
+}
+
+.todo-date {
+  margin-right: 1rem;
+}
+
+.todo-delete {
+  padding-right: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #868686;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
