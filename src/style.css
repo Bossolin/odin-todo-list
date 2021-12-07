@@ -203,3 +203,18 @@ form {
   background-color: white;
   cursor: pointer;
 }
+
+/* lists CSS */
+
+.todos-lists {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.todos-lists .active {
+  font-weight: bold;
+}

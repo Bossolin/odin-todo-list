@@ -10,24 +10,26 @@ const Todo = (() => {
 
   const todoArr = [];
 
+  const lists = ["All", "Folder 1", "Folder 2"];
+
   const dummyTodo = createTodo(
     "Finish Todo List",
     "04-12-2021",
     "urgent",
-    "main"
+    "Folder 1"
   );
 
   const dummyTodo2 = createTodo(
     "Finish Todo List 2",
     "04-12-2021",
     "urgent",
-    "main"
+    "Folder 2"
   );
 
   todoArr.push(dummyTodo);
   todoArr.push(dummyTodo2);
 
-  return { createTodo, todoArr };
+  return { createTodo, todoArr, lists };
 })();
 
 export default Todo;

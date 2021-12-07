@@ -39,6 +39,10 @@ const UI = (() => {
       const todosUl = document.createElement("ul");
       todosUl.classList.add("todos-ul");
 
+      const listsUl = document.createElement("ul");
+      listsUl.classList.add("todos-lists");
+
+      list.appendChild(listsUl);
       todos.appendChild(todosUl);
       main.appendChild(list);
       main.appendChild(todos);
@@ -98,6 +102,8 @@ const UI = (() => {
     body.appendChild(content);
     Dom.modalBtns();
     Todo.todoArr.forEach(Logic.displayTodo);
+    Todo.lists.forEach(Logic.displayLists);
+    Dom.filterTodos();
   };
 
   return { generateUI };

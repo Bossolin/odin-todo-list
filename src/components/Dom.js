@@ -47,6 +47,14 @@ const Dom = (() => {
     })();
   };
 
+  const filterTodos = () => {
+    const listItems = document.querySelectorAll(".todos-lists li");
+
+    listItems.forEach((item) => {
+      item.addEventListener("click", Logic.filterTodos);
+    });
+  };
+
   const deleteTodo = (todo) => {
     const todoLi = document.getElementById(todo.path[1].id);
     todoLi.remove();
@@ -54,7 +62,7 @@ const Dom = (() => {
     Todo.todoArr = Todo.todoArr.filter((task) => +task.id !== +todo.path[1].id);
   };
 
-  return { modalBtns, deleteTodo };
+  return { modalBtns, deleteTodo, filterTodos };
 })();
 
 export default Dom;
