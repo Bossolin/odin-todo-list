@@ -5,6 +5,9 @@ const Logic = (() => {
     const todoUl = document.querySelector(".todos-ul");
     const todoItem = document.createElement("li");
     todoItem.setAttribute("id", todo.id);
+    todo.priority === "urgent"
+      ? todoItem.classList.add("urgent")
+      : todoItem.classList.add("normal");
 
     const title = document.createElement("div");
     title.classList.add("todo-title");

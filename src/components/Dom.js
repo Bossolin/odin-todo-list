@@ -41,8 +41,6 @@ const Dom = (() => {
         modal.classList.remove("modal-bg-active");
 
         Logic.displayTodo(newTodo);
-
-        console.log(Todo.todoArr);
       };
 
       btn.addEventListener("click", submitTodo);
@@ -54,7 +52,6 @@ const Dom = (() => {
     todoLi.remove();
 
     Todo.todoArr = Todo.todoArr.filter((task) => +task.id !== +todo.path[1].id);
-    console.log(Todo.todoArr);
   };
 
   return { modalBtns, deleteTodo };

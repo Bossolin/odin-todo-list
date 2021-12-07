@@ -176,7 +176,14 @@ form {
   list-style-type: none;
   display: flex;
   border: 0.1rem solid #868686;
+}
+
+.todos-ul .urgent {
   border-left: 0.2rem solid red;
+}
+
+.todos-ul .normal {
+  border-left: 0.2rem solid green;
 }
 
 .todo-title {
