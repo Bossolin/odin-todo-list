@@ -46,9 +46,16 @@ const Logic = (() => {
     children.forEach((child) => child.remove());
   };
 
+  const clearBaldness = () => {
+    const listItems = document.querySelectorAll(".todos-lists li");
+    listItems.forEach((item) => item.classList.remove("active"));
+  };
+
   const filterTodos = (list) => {
     clearTodos();
+    clearBaldness();
 
+    list.target.classList.add("active");
     if (list.target.innerText === "All") {
       return Todo.todoArr.forEach(displayTodo);
     }
@@ -56,6 +63,8 @@ const Logic = (() => {
     const filtered = Todo.todoArr.filter(
       (todo) => todo.folder === list.target.innerText
     );
+
+    console.log(list.target);
 
     filtered.forEach(displayTodo);
   };
