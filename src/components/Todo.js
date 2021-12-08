@@ -10,7 +10,22 @@ const Todo = (() => {
 
   const todoArr = [];
 
-  const lists = ["All", "Folder 1", "Folder 2"];
+  // const lists = ["All", "Folder 1", "Folder 2"];
+  const lists = [
+    {
+      text: "All",
+      value: "All",
+      selected: true,
+    },
+    {
+      text: "Folder 1",
+      value: "Folder 1",
+    },
+    {
+      text: "Folder 2",
+      value: "Folder 2",
+    },
+  ];
 
   const dummyTodo = createTodo(
     "Finish Todo List",

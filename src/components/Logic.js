@@ -34,7 +34,7 @@ const Logic = (() => {
     const listsUl = document.querySelector(".todos-lists");
     const listItem = document.createElement("li");
 
-    listItem.innerText = list;
+    listItem.innerText = list.text;
 
     listItem.innerText === "All" ? listItem.classList.add("active") : "";
 
@@ -63,8 +63,6 @@ const Logic = (() => {
     const filtered = Todo.todoArr.filter(
       (todo) => todo.folder === list.target.innerText
     );
-
-    console.log(list.target);
 
     filtered.forEach(displayTodo);
   };
