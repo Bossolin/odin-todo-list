@@ -8,6 +8,8 @@ const Dom = (() => {
       btn.addEventListener("click", () => {
         const modal = document.querySelector(".modal-bg");
         modal.classList.add("modal-bg-active");
+
+        const title = document.querySelector("#title").focus();
       });
     })();
 
@@ -44,6 +46,35 @@ const Dom = (() => {
       };
 
       btn.addEventListener("click", submitTodo);
+    })();
+
+    const addFolderBtn = (() => {
+      const btn = document.querySelector(".add-folder");
+
+      btn.addEventListener("click", () => {
+        const field = document.querySelector(".add-folder-input");
+        field.classList.toggle("active");
+        field.focus();
+
+        // field.addEventListener("submit", (e) => {
+        //   e.preventDefault();
+        //   Todo.lists.push({ text: field.innerText });
+        //   console.log(Todo.lists);
+        // });
+
+        field.onkeydown = function (e) {
+          if (e.keyCode == 13) {
+            e.preventDefault();
+            Todo.lists.push({ text: e.target.value });
+            console.log(Todo.lists);
+
+            const listsUl = document.querySelector(".todos-lists");
+            const listItem = document.createElement("li");
+            listItem.innerText = e.target.value;
+            listsUl.appendChild(listItem);
+          }
+        };
+      });
     })();
   };
 

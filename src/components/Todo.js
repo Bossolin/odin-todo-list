@@ -14,7 +14,6 @@ const Todo = (() => {
   const lists = [
     {
       text: "All",
-      value: "All",
       selected: true,
     },
     {

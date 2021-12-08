@@ -62,6 +62,8 @@ form {
 .list {
   background-color: #dfdfdf;
   width: 15rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .todos {
@@ -207,7 +209,8 @@ form {
 /* lists CSS */
 
 .todos-lists {
-  padding: 1.5rem;
+  padding: 0 1.5rem;
+  padding-top: 0;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
@@ -217,4 +220,31 @@ form {
 
 .todos-lists .active {
   font-weight: bold;
+}
+
+/* lists button CSS */
+
+.add-folder {
+  all: unset;
+  color: black;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin: 1rem;
+  align-self: flex-end;
+  border: 0.15rem solid black;
+}
+
+.add-folder:hover {
+  outline: #000000 0.1rem solid;
+}
+
+.add-folder-input {
+  margin: 0 1.5rem;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.active {
+  visibility: visible;
+  opacity: 1;
 }

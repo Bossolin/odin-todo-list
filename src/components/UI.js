@@ -43,7 +43,19 @@ const UI = (() => {
       const listsUl = document.createElement("ul");
       listsUl.classList.add("todos-lists");
 
+      const btn = document.createElement("button");
+      btn.classList.add("add-folder");
+      btn.innerHTML = "Add Folder <b>+</b>";
+
+      const folderForm = document.createElement("form");
+      folderForm.setAttribute("type", "submit");
+      const field = document.createElement("input");
+      field.classList.add("add-folder-input");
+      folderForm.appendChild(field);
+
+      list.appendChild(btn);
       list.appendChild(listsUl);
+      list.appendChild(folderForm);
       todos.appendChild(todosUl);
       main.appendChild(list);
       main.appendChild(todos);
