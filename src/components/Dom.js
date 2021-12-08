@@ -54,16 +54,12 @@ const Dom = (() => {
       btn.addEventListener("click", () => {
         const field = document.querySelector(".add-folder-input");
         field.classList.toggle("active");
+        field.setAttribute("required", "");
         field.focus();
-
-        // field.addEventListener("submit", (e) => {
-        //   e.preventDefault();
-        //   Todo.lists.push({ text: field.innerText });
-        //   console.log(Todo.lists);
-        // });
 
         field.onkeydown = function (e) {
           if (e.keyCode == 13) {
+            if (e.target.value === "") return;
             e.preventDefault();
             Todo.lists.push({ text: e.target.value });
             console.log(Todo.lists);
@@ -72,6 +68,7 @@ const Dom = (() => {
             const listItem = document.createElement("li");
             listItem.innerText = e.target.value;
             listsUl.appendChild(listItem);
+            field.classList.toggle("active");
           }
         };
       });

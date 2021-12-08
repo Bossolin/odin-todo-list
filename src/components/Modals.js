@@ -14,7 +14,7 @@ export const Modals = (() => {
           <button id="close-btn">&times;</button>
         </div>
         <label for="title">Task:</label>
-        <input type="text" name="title" id="title" />
+        <input type="text" name="title" id="title" required/>
         <label for="date">Due date:</label>
         <input type="date" name="date" id="date" />
         <label for="prio">Priority:</label>
