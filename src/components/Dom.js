@@ -33,7 +33,7 @@ const Dom = (() => {
         const prio = document.querySelector('input[name="prio"]:checked').value;
         const folder = document.querySelector("#folders").value;
 
-        const newTodo = Todo.createTodo(title, dueDate, prio, folder);
+        const newTodo = Todo.createTodo(title, new Date(dueDate), prio, folder);
         Todo.todoArr.push(newTodo);
 
         const form = document.querySelector("form");
@@ -62,7 +62,6 @@ const Dom = (() => {
             if (e.target.value === "") return;
             e.preventDefault();
             Todo.lists.push({ text: e.target.value });
-            console.log(Todo.lists);
 
             Logic.clearLists();
             Todo.lists.forEach(Logic.displayLists);

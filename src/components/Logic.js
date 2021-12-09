@@ -65,6 +65,11 @@ const Logic = (() => {
       return Todo.todoArr.forEach(displayTodo);
     }
 
+    if (list.target.innerText === "Today") {
+      const todayTodos = Todo.todoArr.filter((todo) => todo.today);
+      return todayTodos.forEach(displayTodo);
+    }
+
     const filtered = Todo.todoArr.filter(
       (todo) => todo.folder === list.target.innerText
     );

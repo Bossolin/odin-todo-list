@@ -1,11 +1,14 @@
+import { isToday } from "date-fns";
+
 const Todo = (() => {
   const createTodo = (title, dueDate, priority, folder) => {
     const id = Math.random();
 
-    const editTodo = "inherit edit module";
-    const { deleteTodo } = "inherit delete module";
+    const today = isToday(dueDate);
 
-    return { title, dueDate, priority, folder, id, editTodo, deleteTodo };
+    const formattedDate = dueDate.toDateString();
+
+    return { title, dueDate: formattedDate, priority, folder, id, today };
   };
 
   const todoArr = [];
@@ -16,25 +19,23 @@ const Todo = (() => {
       selected: true,
     },
     {
-      text: "Folder 1",
-      value: "Folder 1",
+      text: "Today",
     },
     {
-      text: "Folder 2",
-      value: "Folder 2",
+      text: "Folder 1",
     },
   ];
 
   const dummyTodo = createTodo(
     "Finish Todo List",
-    "04-12-2021",
+    new Date("04-12-2021"),
     "urgent",
     "Folder 1"
   );
 
   const dummyTodo2 = createTodo(
     "Finish Todo List 2",
-    "04-12-2021",
+    new Date("04-12-2021"),
     "urgent",
     "Folder 2"
   );
