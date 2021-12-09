@@ -11,9 +11,10 @@ const Todo = (() => {
     return { title, dueDate: formattedDate, priority, folder, id, today };
   };
 
-  const todoArr = [];
+  let todoArr = [];
+  let localTodoArr = JSON.parse(localStorage.getItem("todoArr"));
 
-  const lists = [
+  let lists = [
     {
       text: "All",
       selected: true,
@@ -25,6 +26,17 @@ const Todo = (() => {
       text: "Folder 1",
     },
   ];
+
+  const setLocalData = function () {
+    if (localTodoArr === null) {
+      localStorage.setItem("todoArr", JSON.stringify(todoArr));
+      localTodoArr = JSON.parse(localStorage.getItem("todoArr"));
+    }
+    localStorage.setItem("todoArr", JSON.stringify(localTodoArr));
+  };
+  setLocalData();
+
+  console.log(localTodoArr);
 
   const dummyTodo = createTodo(
     "Finish Todo List",

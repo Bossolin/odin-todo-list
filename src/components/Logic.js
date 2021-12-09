@@ -85,9 +85,13 @@ const Logic = (() => {
       selectDiv.innerHTML = "";
     }
 
-    Todo.lists.forEach((option) =>
-      selectDiv.add(new Option(option.text, option.value, option.selected))
-    );
+    Todo.lists.forEach((option) => {
+      if (option.text === "Today") return;
+      return selectDiv.add(
+        new Option(option.text, option.value, option.selected)
+      );
+    });
+
     formDiv.insertBefore(selectDiv, formDiv.children[8]);
   };
 
