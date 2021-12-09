@@ -30,6 +30,11 @@ const Logic = (() => {
     todoUl.appendChild(todoItem);
   };
 
+  const clearLists = () => {
+    const children = document.querySelectorAll(".todos-lists li");
+    children.forEach((child) => child.remove());
+  };
+
   const displayLists = (list) => {
     const listsUl = document.querySelector(".todos-lists");
     const listItem = document.createElement("li");
@@ -67,7 +72,28 @@ const Logic = (() => {
     filtered.forEach(displayTodo);
   };
 
-  return { displayTodo, displayLists, filterTodos, clearTodos };
+  const updateLists = () => {
+    const formDiv = document.querySelector(".modal-form");
+    const selectDiv = document.querySelector("#folders");
+
+    if (selectDiv.firstChild) {
+      selectDiv.innerHTML = "";
+    }
+
+    Todo.lists.forEach((option) =>
+      selectDiv.add(new Option(option.text, option.value, option.selected))
+    );
+    formDiv.insertBefore(selectDiv, formDiv.children[8]);
+  };
+
+  return {
+    displayTodo,
+    displayLists,
+    filterTodos,
+    clearTodos,
+    clearLists,
+    updateLists,
+  };
 })();
 
 export default Logic;

@@ -10,7 +10,6 @@ const Todo = (() => {
 
   const todoArr = [];
 
-  // const lists = ["All", "Folder 1", "Folder 2"];
   const lists = [
     {
       text: "All",

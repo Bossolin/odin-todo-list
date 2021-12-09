@@ -71,6 +71,7 @@ const UI = (() => {
     Todo.todoArr.forEach(Logic.displayTodo);
     Todo.lists.forEach(Logic.displayLists);
     Dom.filterTodos();
+    Logic.updateLists();
   };
 
   return { generateUI };

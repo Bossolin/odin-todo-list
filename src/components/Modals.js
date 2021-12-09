@@ -1,4 +1,4 @@
-import Todo from "./Todo";
+import Logic from "./Logic";
 
 export const Modals = (() => {
   const addTodoModal = () => {
@@ -8,6 +8,7 @@ export const Modals = (() => {
     const modalDiv = document.createElement("div");
     modalDiv.classList.add("modal-div");
     const formDiv = document.createElement("form");
+    formDiv.classList.add("modal-form");
     modalDiv.appendChild(formDiv);
     formDiv.innerHTML = `<div class="form-header">
           <h2>Add Todo</h2>
@@ -31,7 +32,7 @@ export const Modals = (() => {
           <label for="">Urgent</label>
         </div>
         <label for="cars">Folder:</label>
-       
+        <select id="folders"></select> 
         <div class="btns">
           <button type="reset" id="reset-btn">Reset</button>
           <button type="submit" id="submit-btn">Add</button>
@@ -39,18 +40,8 @@ export const Modals = (() => {
 
     modalBG.appendChild(modalDiv);
 
-    const selectDiv = document.createElement("select");
-    selectDiv.setAttribute("id", "folders");
-
-    Todo.lists.forEach((option) =>
-      selectDiv.add(new Option(option.text, option.value, option.selected))
-    );
-    formDiv.insertBefore(selectDiv, formDiv.children[8]);
-
     return modalBG;
   };
 
-  const addListModal = () => {};
-
-  return { addTodoModal, addListModal };
+  return { addTodoModal };
 })();

@@ -64,10 +64,12 @@ const Dom = (() => {
             Todo.lists.push({ text: e.target.value });
             console.log(Todo.lists);
 
-            const listsUl = document.querySelector(".todos-lists");
-            const listItem = document.createElement("li");
-            listItem.innerText = e.target.value;
-            listsUl.appendChild(listItem);
+            Logic.clearLists();
+            Todo.lists.forEach(Logic.displayLists);
+            filterTodos();
+            Logic.updateLists();
+
+            field.value = "";
             field.classList.toggle("active");
           }
         };
