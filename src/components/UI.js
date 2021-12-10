@@ -2,7 +2,6 @@ import Dom from "./Dom";
 import Todo from "./Todo";
 import Logic from "./Logic";
 import { Modals } from "./Modals";
-import { isToday } from "date-fns";
 
 const UI = (() => {
   const generateUI = () => {

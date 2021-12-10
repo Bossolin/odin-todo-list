@@ -35,8 +35,9 @@ const Dom = (() => {
 
         const newTodo = Todo.createTodo(title, new Date(dueDate), prio, folder);
         Todo.todoArr.push(newTodo);
+        Todo.setLocalData();
 
-        const form = document.querySelector("form");
+        const form = document.querySelector(".modal-form");
         form.reset();
 
         const modal = document.querySelector(".modal-bg");
@@ -62,6 +63,7 @@ const Dom = (() => {
             if (e.target.value === "") return;
             e.preventDefault();
             Todo.lists.push({ text: e.target.value });
+            Todo.setLocalData();
 
             Logic.clearLists();
             Todo.lists.forEach(Logic.displayLists);
@@ -89,6 +91,8 @@ const Dom = (() => {
     todoLi.remove();
 
     Todo.todoArr = Todo.todoArr.filter((task) => +task.id !== +todo.path[1].id);
+    Todo.deleteLocalData();
+    localStorage.setItem("todoArr", JSON.stringify(Todo.todoArr));
   };
 
   return { modalBtns, deleteTodo, filterTodos };

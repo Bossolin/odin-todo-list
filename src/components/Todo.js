@@ -12,7 +12,6 @@ const Todo = (() => {
   };
 
   let todoArr = [];
-  let localTodoArr = JSON.parse(localStorage.getItem("todoArr"));
 
   let lists = [
     {
@@ -22,40 +21,38 @@ const Todo = (() => {
     {
       text: "Today",
     },
-    {
-      text: "Folder 1",
-    },
   ];
 
-  const setLocalData = function () {
-    if (localTodoArr === null) {
-      localStorage.setItem("todoArr", JSON.stringify(todoArr));
-      localTodoArr = JSON.parse(localStorage.getItem("todoArr"));
-    }
-    localStorage.setItem("todoArr", JSON.stringify(localTodoArr));
+  const setLocalData = () => {
+    localStorage.setItem("todoArr", JSON.stringify(todoArr));
+    localStorage.setItem("folders", JSON.stringify(lists));
   };
-  setLocalData();
 
-  console.log(localTodoArr);
+  const getLocalData = () => {
+    if (
+      !JSON.parse(localStorage.getItem("todoArr")) ||
+      !JSON.parse(localStorage.getItem("folders"))
+    ) {
+      return console.log("false");
+    }
+    todoArr = JSON.parse(localStorage.getItem("todoArr"));
+    lists = JSON.parse(localStorage.getItem("folders"));
+  };
 
-  const dummyTodo = createTodo(
-    "Finish Todo List",
-    new Date("04-12-2021"),
-    "urgent",
-    "Folder 1"
-  );
+  const deleteLocalData = () => {
+    localStorage.removeItem("todoArr");
+  };
 
-  const dummyTodo2 = createTodo(
-    "Finish Todo List 2",
-    new Date("04-12-2021"),
-    "urgent",
-    "Folder 2"
-  );
+  getLocalData();
 
-  todoArr.push(dummyTodo);
-  todoArr.push(dummyTodo2);
-
-  return { createTodo, todoArr, lists };
+  return {
+    createTodo,
+    todoArr,
+    lists,
+    setLocalData,
+    getLocalData,
+    deleteLocalData,
+  };
 })();
 
 export default Todo;
