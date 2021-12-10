@@ -79,7 +79,7 @@ const Dom = (() => {
   };
 
   const filterTodos = () => {
-    const listItems = document.querySelectorAll(".todos-lists li");
+    const listItems = document.querySelectorAll(".todos-lists li p");
 
     listItems.forEach((item) => {
       item.addEventListener("click", Logic.filterTodos);
@@ -95,7 +95,11 @@ const Dom = (() => {
     localStorage.setItem("todoArr", JSON.stringify(Todo.todoArr));
   };
 
-  return { modalBtns, deleteTodo, filterTodos };
+  const deleteFolder = (folder) => {
+    console.log(folder);
+  };
+
+  return { modalBtns, deleteTodo, filterTodos, deleteList: deleteFolder };
 })();
 
 export default Dom;

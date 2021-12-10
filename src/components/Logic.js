@@ -38,11 +38,21 @@ const Logic = (() => {
   const displayLists = (list) => {
     const listsUl = document.querySelector(".todos-lists");
     const listItem = document.createElement("li");
+    const p = document.createElement("p");
 
-    listItem.innerText = list.text;
+    p.innerText = list.text;
 
-    listItem.innerText === "All" ? listItem.classList.add("active") : "";
+    p.innerText === "All" ? p.classList.add("active") : "";
 
+    listItem.appendChild(p);
+
+    if (list.text !== "All" && list.text !== "Today") {
+      const btn = document.createElement("button");
+      btn.classList.add("delete-folder");
+      btn.innerText = `×`;
+      btn.addEventListener("click", Dom.deleteFolder);
+      listItem.appendChild(btn);
+    }
     listsUl.appendChild(listItem);
   };
 
@@ -52,7 +62,7 @@ const Logic = (() => {
   };
 
   const clearBaldness = () => {
-    const listItems = document.querySelectorAll(".todos-lists li");
+    const listItems = document.querySelectorAll(".todos-lists li p");
     listItems.forEach((item) => item.classList.remove("active"));
   };
 
@@ -61,6 +71,7 @@ const Logic = (() => {
     clearBaldness();
 
     list.target.classList.add("active");
+
     if (list.target.innerText === "All") {
       return Todo.todoArr.forEach(displayTodo);
     }
