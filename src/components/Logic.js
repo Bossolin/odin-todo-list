@@ -62,7 +62,7 @@ const Logic = (() => {
   };
 
   const clearBaldness = () => {
-    const listItems = document.querySelectorAll(".todos-lists li p");
+    const listItems = document.querySelectorAll(".active");
     listItems.forEach((item) => item.classList.remove("active"));
   };
 
@@ -70,16 +70,19 @@ const Logic = (() => {
     clearTodos();
     clearBaldness();
 
-    list.target.classList.add("active");
-
     if (list.target.innerText === "All") {
+      list.target.classList.add("active");
       return Todo.todoArr.forEach(displayTodo);
     }
 
     if (list.target.innerText === "Today") {
+      list.target.classList.add("active");
       const todayTodos = Todo.todoArr.filter((todo) => todo.today);
       return todayTodos.forEach(displayTodo);
     }
+
+    list.target.classList.add("active");
+    list.target.nextSibling.classList.add("active");
 
     const filtered = Todo.todoArr.filter(
       (todo) => todo.folder === list.target.innerText

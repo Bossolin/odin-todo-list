@@ -250,8 +250,8 @@ form {
 }
 
 .active {
-  visibility: visible;
-  opacity: 1;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* Delete folder button CSS */
@@ -265,4 +265,6 @@ form {
   border: none;
   cursor: pointer;
   float: right;
+  visibility: hidden;
+  opacity: 0;
 }

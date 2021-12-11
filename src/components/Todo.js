@@ -43,6 +43,10 @@ const Todo = (() => {
     localStorage.removeItem("todoArr");
   };
 
+  const deleteLocalList = () => {
+    localStorage.removeItem("folders");
+  };
+
   getLocalData();
 
   return {
@@ -52,6 +56,7 @@ const Todo = (() => {
     setLocalData,
     getLocalData,
     deleteLocalData,
+    deleteLocalList,
   };
 })();
 

@@ -96,10 +96,21 @@ const Dom = (() => {
   };
 
   const deleteFolder = (folder) => {
-    console.log(folder);
+    const folderLi = document.querySelector(`.active`);
+    folderLi.parentElement.remove();
+
+    Todo.lists = Todo.lists.filter(
+      (item) => item.text !== folder.path[1].firstChild.innerText
+    );
+
+    Todo.deleteLocalList();
+    localStorage.setItem("folders", JSON.stringify(Todo.lists));
+
+    Logic.clearTodos();
+    Todo.todoArr.forEach(Logic.displayTodo);
   };
 
-  return { modalBtns, deleteTodo, filterTodos, deleteList: deleteFolder };
+  return { modalBtns, deleteTodo, filterTodos, deleteFolder };
 })();
 
 export default Dom;
